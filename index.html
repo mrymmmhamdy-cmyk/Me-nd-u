@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mini Game</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      background: #f7f7f7;
+      padding: 30px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .yes { background: #4CAF50; color: white; }
+    .no { background: #f44336; color: white; }
+
+    #flowers {
+      font-size: 30px;
+      margin-top: 20px;
+      display: none;
+      line-height: 1.5;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>Hi 👋 How are you?</h2>
+  <input type="text" id="howAreYou">
+  <button onclick="step2()">Send</button>
+
+  <div id="game" style="display:none;">
+    <h2>wanna play a game?</h2>
+    <button class="yes" onclick="loveQuestion()">Yes</button>
+    <button class="no" onclick="endGame()">No</button>
+  </div>
+
+  <div id="love" style="display:none;">
+    <h2>Do you love me?</h2>
+    <button class="yes" onclick="loveYes()">Yes</button>
+    <button class="no" onclick="loveNo()">No</button>
+  </div>
+
+  <div id="flowersSection" style="display:none;">
+    <h2>Take flowers bcz you're a good boy 🌸</h2>
+    <button onclick="showFlowers()">Take flowers</button>
+  </div>
+
+  <div id="flowers"></div>
+
+  <div id="message"></div>
+
+<script>
+function step2() {
+  document.getElementById("game").style.display = "block";
+}
+
+function endGame() {
+  document.getElementById("message").innerHTML = "Okay maybe next time 😊";
+}
+
+function loveQuestion() {
+  document.getElementById("love").style.display = "block";
+}
+
+function loveYes() {
+  document.getElementById("message").innerHTML = "Yeyyy I love you too 💖";
+  document.getElementById("flowersSection").style.display = "block";
+}
+
+function loveNo() {
+  document.getElementById("message").innerHTML = "uww 😭 how dare you";
+  document.getElementById("flowersSection").style.display = "block";
+}
+
+function showFlowers() {
+  let flowers = "🌸🌺🌸🌷🌸🌼🌸🌺🌸🌷🌸🌼🌸🌺🌸🌷🌸🌼";
+  document.getElementById("flowers").style.display = "block";
+  document.getElementById("flowers").innerHTML = flowers + "<br><br>Good boy 💖";
+
+  document.getElementById("message").innerHTML =
+    "You are appreciated, you matter, and you're doing better than you think 🌷💫";
+}
+</script>
+
+</body>
+</html>
